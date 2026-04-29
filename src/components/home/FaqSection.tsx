@@ -35,7 +35,7 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="bg-cream border-t border-ink/8 py-20 lg:py-28">
+    <section id="faq" className="bg-cream border-t border-ink/8 pt-20 lg:pt-28 pb-0">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2 className="h-display text-4xl md:text-5xl text-ink mb-12">
           Questions You&apos;re Probably About to Ask

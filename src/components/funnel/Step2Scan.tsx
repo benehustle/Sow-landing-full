@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useFunnel } from "./FunnelProvider";
+import BouncingRobot from "@/components/ui/BouncingRobot";
+import { submitToNetlify } from "@/lib/netlifyForm";
 
 type ScanData = {
   title?: string;
@@ -83,6 +85,17 @@ export default function Step2Scan() {
       scanResult: JSON.stringify(scan),
       notes,
     });
+
+    // Capture scan-branch submission to Netlify Forms (fire-and-forget).
+    void submitToNetlify("scan", {
+      firstName: data.firstName,
+      businessName: data.businessName,
+      phone: data.phone,
+      email: data.email,
+      existingUrl: url,
+      notes,
+    });
+
     setStep(3);
   };
 
@@ -120,7 +133,7 @@ export default function Step2Scan() {
       {/* Loading state */}
       {isScanning && (
         <div className="flex items-center gap-3 py-4">
-          <span className="w-4 h-4 rounded-full border-2 border-green-brand border-t-transparent animate-spin shrink-0" />
+          <BouncingRobot size={48} />
           <span
             key={msgIndex}
             className="text-ink/60 text-sm transition-opacity"

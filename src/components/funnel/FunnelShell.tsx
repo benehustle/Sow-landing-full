@@ -49,7 +49,7 @@ export default function FunnelShell() {
   return (
     <div className="min-h-screen bg-cream flex flex-col">
       <div className="flex-1 flex flex-col items-center justify-start px-4 pt-12 pb-20">
-        <div className="w-full max-w-md">
+        <div className={`w-full ${step === 3 ? "max-w-2xl" : "max-w-md"}`}>
           <ProgressBar step={step} />
           {step === 1 && <Step1Lead />}
           {step === 2 && <Step2Branch />}

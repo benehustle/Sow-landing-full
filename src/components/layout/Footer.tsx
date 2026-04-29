@@ -67,7 +67,11 @@ function GoogleIcon({ className }: IconProps) {
 }
 
 const SOCIALS = [
-  { label: "Facebook", href: "#", Icon: FacebookIcon },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61573142737102",
+    Icon: FacebookIcon,
+  },
   { label: "X / Twitter", href: "#", Icon: XTwitterIcon },
   { label: "Instagram", href: "#", Icon: InstagramIcon },
   { label: "Google", href: "#", Icon: GoogleIcon },
@@ -141,16 +145,21 @@ export default function Footer() {
             </div>
 
             <div className="border-t border-cream/15 mt-5 pt-5 flex items-center gap-5">
-              {SOCIALS.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="text-cream/85 hover:text-white transition-colors"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              {SOCIALS.map(({ label, href, Icon }) => {
+                const external = href.startsWith("http");
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="text-cream/85 hover:text-white transition-colors"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

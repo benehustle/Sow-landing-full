@@ -25,7 +25,7 @@ export default function WhatYouGet() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* LEFT — Robot image with soft green blob behind */}
+          {/* LEFT - Robot image with soft green blob behind */}
           <div className="relative flex justify-center">
             <div
               aria-hidden="true"
@@ -40,7 +40,7 @@ export default function WhatYouGet() {
             />
           </div>
 
-          {/* RIGHT — Headline + checklist */}
+          {/* RIGHT - Headline + checklist */}
           <div>
             <h2 className="h-display text-4xl md:text-5xl font-extrabold text-ink leading-tight">
               What You Get for{" "}

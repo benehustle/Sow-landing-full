@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { cities, getCityBySlug } from "@/data/cities";
 import { services } from "@/data/services";
@@ -57,8 +58,16 @@ export default async function CityHubPage({ params }: Props) {
       </div>
 
       {/* Hero */}
-      <section className="bg-ink text-cream py-16 md:py-20">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="bg-ink text-cream py-16 md:py-20 relative overflow-hidden">
+        <Image
+          src="/robots/robot-laptop.png"
+          alt=""
+          width={200}
+          height={200}
+          aria-hidden="true"
+          className="hidden md:block absolute bottom-0 right-6 lg:right-12 w-[200px] h-auto pointer-events-none"
+        />
+        <div className="max-w-5xl mx-auto px-4 relative">
           <div className="inline-flex items-center gap-2 bg-green-brand/20 text-green-brand text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
             {city.state}
           </div>

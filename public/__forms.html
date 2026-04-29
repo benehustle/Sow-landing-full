@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form definitions</title>
+  </head>
+  <body>
+    <!--
+      This file exists so Netlify's build-time form detector can see our forms.
+      The actual submissions are made client-side via fetch to "/" with
+      Content-Type: application/x-www-form-urlencoded and a `form-name` field.
+      Do not delete. Do not link to. Do not load.
+    -->
+
+    <!-- LEAD: Step 1 of the funnel. Captures name, business, phone, email + UTMs. -->
+    <form name="lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="form-name" value="lead" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="businessName" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="utm_source" />
+      <input type="text" name="utm_medium" />
+      <input type="text" name="utm_campaign" />
+      <input type="text" name="utm_content" />
+      <input type="text" name="utm_term" />
+      <input type="text" name="fbclid" />
+      <input type="text" name="gclid" />
+      <input type="text" name="referrer" />
+      <input type="text" name="landing_url" />
+    </form>
+
+    <!-- SCAN: existing-website branch. Email + the URL we scanned. -->
+    <form name="scan" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="form-name" value="scan" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="businessName" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="url" name="existingUrl" />
+      <textarea name="notes"></textarea>
+    </form>
+
+    <!-- ONBOARD: no-existing-site branch. Email + everything they told us. -->
+    <form name="onboard" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="form-name" value="onboard" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="businessName" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="industry" />
+      <textarea name="services"></textarea>
+      <input type="text" name="serviceArea" />
+      <textarea name="notes"></textarea>
+    </form>
+  </body>
+</html>

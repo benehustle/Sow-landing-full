@@ -26,11 +26,11 @@ export default function Home() {
   return (
     <>
       {/* ================================================================== */}
-      {/* HERO + TRUSTED BY — share one continuous green arc                 */}
+      {/* HERO + TRUSTED BY - share one continuous green arc                 */}
       {/* ================================================================== */}
       <div className="relative bg-cream overflow-hidden">
 
-        {/* SHARED ARC — one big oval anchored top-right, spans both sections */}
+        {/* SHARED ARC - one big oval anchored top-right, spans both sections */}
         <div
           aria-hidden="true"
           className="absolute right-[-14%] -top-32 w-[60%] h-[1200px] rounded-[50%] bg-green-brand/[0.09] pointer-events-none z-0"
@@ -95,7 +95,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ---- RIGHT: hero image — top-aligned, fills right column, base clips at section bottom ---- */}
+            {/* ---- RIGHT: hero image - top-aligned, fills right column, base clips at section bottom ---- */}
             <div className="hidden lg:flex items-start justify-center pt-6">
               <Image
                 src="/robots/hero-mockup.png"
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* TRUSTED BY — same shared-arc wrapper                               */}
+      {/* TRUSTED BY - same shared-arc wrapper                               */}
       {/* ------------------------------------------------------------------ */}
       <TrustedBy />
 

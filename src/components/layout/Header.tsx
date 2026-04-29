@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Logo from "@/components/brand/Logo";
 import { cities } from "@/data/cities";
@@ -39,6 +39,31 @@ export default function Header() {
   const [locOpen, setLocOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLocOpen, setMobileLocOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const locCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const openLocations = () => {
+    if (locCloseTimer.current) {
+      clearTimeout(locCloseTimer.current);
+      locCloseTimer.current = null;
+    }
+    setLocOpen(true);
+  };
+
+  const closeLocationsWithDelay = () => {
+    if (locCloseTimer.current) clearTimeout(locCloseTimer.current);
+    locCloseTimer.current = setTimeout(() => {
+      setLocOpen(false);
+      locCloseTimer.current = null;
+    }, 180);
+  };
 
   // Determine which nav link is active
   const activeLinkHref = useMemo(() => {
@@ -57,13 +82,15 @@ export default function Header() {
         : "text-ink/60 hover:text-ink"
     }`;
 
+  const logoSize = isHome && !scrolled ? 51 : 34;
+
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-ink/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-6">
 
         {/* Left: Logo */}
         <Link href="/" aria-label="Spot On Websites home" className="shrink-0">
-          <Logo size={34} />
+          <Logo size={logoSize} />
         </Link>
 
         {/* Centre: Desktop nav */}
@@ -74,10 +101,14 @@ export default function Header() {
             </Link>
           ))}
 
-          {/* Locations dropdown — sits after the main links */}
-          <div className="relative" onMouseLeave={() => setLocOpen(false)}>
+          {/* Locations dropdown - sits after the main links */}
+          <div
+            className="relative"
+            onMouseEnter={openLocations}
+            onMouseLeave={closeLocationsWithDelay}
+          >
             <button
-              onMouseEnter={() => setLocOpen(true)}
+              onMouseEnter={openLocations}
               onClick={() => setLocOpen((v) => !v)}
               className="flex items-center gap-1 text-sm font-medium text-ink/60 hover:text-ink transition-colors"
               aria-expanded={locOpen}
@@ -95,7 +126,10 @@ export default function Header() {
             </button>
 
             {locOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-ink/8 p-4 z-50">
+              <div
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-white rounded-2xl shadow-xl border border-ink/8 p-4 z-50"
+                onMouseEnter={openLocations}
+              >
                 <p className="text-xs font-bold text-ink/30 uppercase tracking-widest mb-3">Top cities</p>
                 <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5">
                   {topCities.map((city) => (

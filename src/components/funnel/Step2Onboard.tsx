@@ -2,6 +2,7 @@
 
 import { useState, useRef, type ChangeEvent } from "react";
 import { useFunnel } from "./FunnelProvider";
+import { submitToNetlify } from "@/lib/netlifyForm";
 
 const INDUSTRIES = [
   "Plumbing",
@@ -28,7 +29,7 @@ const inputClass =
 const labelClass = "block text-sm font-bold text-ink mb-1.5";
 
 export default function Step2Onboard() {
-  const { updateData, setStep } = useFunnel();
+  const { data, updateData, setStep } = useFunnel();
 
   const [industry, setIndustry] = useState("");
   const [services, setServices] = useState("");
@@ -55,6 +56,19 @@ export default function Step2Onboard() {
       notes,
       photoFiles: photos,
     });
+
+    // Capture onboard-branch submission to Netlify Forms (fire-and-forget).
+    void submitToNetlify("onboard", {
+      firstName: data.firstName,
+      businessName: data.businessName,
+      phone: data.phone,
+      email: data.email,
+      industry,
+      services,
+      serviceArea,
+      notes,
+    });
+
     setStep(3);
   };
 

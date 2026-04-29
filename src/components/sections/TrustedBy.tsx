@@ -59,7 +59,7 @@ function BrandLogo({
           className="w-[60px] h-[60px] rounded-full object-contain shrink-0"
         />
       )}
-      {/* Hidden probe — if the real logo loads, swap to it */}
+      {/* Hidden probe - if the real logo loads, swap to it */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/logos/${slug}.png`}

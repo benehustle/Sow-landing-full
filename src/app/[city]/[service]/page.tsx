@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { cities, getCityBySlug } from "@/data/cities";
 import { services, getServiceBySlug } from "@/data/services";
@@ -130,8 +131,16 @@ export default async function CityServicePage({ params }: Props) {
       </div>
 
       {/* Hero */}
-      <section className="bg-ink text-cream py-16 md:py-24">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="bg-ink text-cream py-16 md:py-24 relative overflow-hidden">
+        <Image
+          src="/robots/robot-pointing.png"
+          alt=""
+          width={180}
+          height={216}
+          aria-hidden="true"
+          className="hidden md:block absolute top-8 right-8 lg:right-16 w-[180px] h-auto -scale-x-100 pointer-events-none"
+        />
+        <div className="max-w-5xl mx-auto px-4 relative">
           <div className="inline-flex items-center gap-2 bg-green-brand/20 text-green-brand text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
             {city.name}, {city.state}
           </div>
@@ -204,9 +213,19 @@ export default async function CityServicePage({ params }: Props) {
       {/* Local FAQ */}
       <section className="py-16 bg-cream">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="h-display text-3xl md:text-4xl text-ink mb-10">
-            Frequently asked questions
-          </h2>
+          <div className="flex items-center gap-4 mb-10">
+            <Image
+              src="/robots/robot-pointing.png"
+              alt=""
+              width={80}
+              height={96}
+              aria-hidden="true"
+              className="w-20 h-auto shrink-0"
+            />
+            <h2 className="h-display text-3xl md:text-4xl text-ink">
+              Local Questions
+            </h2>
+          </div>
           <LocalFAQ items={copy.localFAQ} />
         </div>
       </section>

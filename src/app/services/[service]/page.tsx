@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { services, getServiceBySlug } from "@/data/services";
 import { cities } from "@/data/cities";
@@ -49,8 +50,16 @@ export default async function ServiceHubPage({ params }: Props) {
       </div>
 
       {/* Hero */}
-      <section className="bg-ink text-cream py-16 md:py-20">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="bg-ink text-cream py-16 md:py-20 relative overflow-hidden">
+        <Image
+          src="/robots/robot-pointing.png"
+          alt=""
+          width={180}
+          height={216}
+          aria-hidden="true"
+          className="hidden md:block absolute top-10 right-8 lg:right-16 w-[180px] h-auto -scale-x-100 pointer-events-none"
+        />
+        <div className="max-w-5xl mx-auto px-4 relative">
           <h1 className="h-display text-4xl md:text-5xl text-cream mb-4">
             {service.name} - Australia-Wide
           </h1>

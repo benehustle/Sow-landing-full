@@ -1,7 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
+import Script from "next/script";
+import { motion } from "framer-motion";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useFunnel } from "./FunnelProvider";
+import BouncingRobot from "@/components/ui/BouncingRobot";
 
 declare global {
   interface Window {
@@ -9,27 +13,29 @@ declare global {
   }
 }
 
-const CALENDAR_URL = process.env.NEXT_PUBLIC_CALENDAR_URL;
+const CALENDAR_URL =
+  process.env.NEXT_PUBLIC_CALENDAR_URL ??
+  "https://crm.spotonwebsites.com.au/widget/booking/ZdjWTrTNfzLGUSFGSH0O";
+const CALENDAR_EMBED_SCRIPT =
+  "https://crm.spotonwebsites.com.au/js/form_embed.js";
 
 // ---------- Success state ----------
 
 function SuccessState({ name }: { name?: string }) {
   return (
     <div className="flex flex-col items-center text-center py-10 gap-6">
-      <div className="w-20 h-20 rounded-full bg-green-brand flex items-center justify-center animate-[scale-in_0.35s_cubic-bezier(0.34,1.56,0.64,1)_both]">
-        <svg
-          viewBox="0 0 40 40"
-          width="36"
-          height="36"
-          fill="none"
-          stroke="#FAF7F0"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="8,22 16,30 32,12" />
-        </svg>
-      </div>
+      <motion.div
+        initial={{ scale: 0, rotate: -10 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: "spring", duration: 0.6 }}
+      >
+        <Image
+          src="/robots/robot-pointing.png"
+          alt="Spot On Websites mascot"
+          width={200}
+          height={240}
+        />
+      </motion.div>
       <div>
         <h2 className="h-display text-3xl text-ink mb-3">
           {name ? `You're locked in, ${name}.` : "You're locked in."}
@@ -130,6 +136,20 @@ export default function Step3Book() {
     return () => window.removeEventListener("message", handler);
   }, []);
 
+  // Pre-fill calendar with lead details where supported
+  const calendarSrc = useMemo(() => {
+    if (!CALENDAR_URL) return "";
+    try {
+      const url = new URL(CALENDAR_URL);
+      if (data.firstName) url.searchParams.set("first_name", data.firstName);
+      if (data.email) url.searchParams.set("email", data.email);
+      if (data.phone) url.searchParams.set("phone", data.phone);
+      return url.toString();
+    } catch {
+      return CALENDAR_URL;
+    }
+  }, [data.firstName, data.email, data.phone]);
+
   if (success) {
     return <SuccessState name={data.firstName} />;
   }
@@ -151,22 +171,44 @@ export default function Step3Book() {
       </div>
 
       {CALENDAR_URL ? (
-        <iframe
-          src={CALENDAR_URL}
-          width="100%"
-          height="600"
-          frameBorder="0"
-          title="Book a call"
-          className="rounded-2xl border border-ink/10 bg-white"
-          allow="payment"
-        />
+        <>
+          {/* Styled card around the GHL booking widget */}
+          <div className="relative rounded-2xl border border-ink/10 bg-white shadow-sm overflow-hidden">
+            {/* Top accent bar */}
+            <div className="h-1.5 w-full bg-gradient-to-r from-green-brand via-green-brand to-green-deep" />
+
+            <div className="p-2 sm:p-3">
+              <iframe
+                src={calendarSrc}
+                id="ZdjWTrTNfzLGUSFGSH0O_embed"
+                title="Book your homepage walkthrough"
+                scrolling="no"
+                className="w-full block rounded-xl bg-white"
+                style={{ border: "none", overflow: "hidden", minHeight: 720 }}
+                allow="payment"
+              />
+            </div>
+
+            {/* Footer trust strip */}
+            <div className="border-t border-ink/8 bg-cream/60 px-5 py-3 flex flex-wrap items-center justify-between gap-2 text-xs text-ink/55">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-brand" />
+                15-minute walkthrough
+              </span>
+              <span>Zero pressure. Reschedule any time.</span>
+            </div>
+          </div>
+
+          {/* Auto-resize script from GHL */}
+          <Script src={CALENDAR_EMBED_SCRIPT} strategy="afterInteractive" />
+        </>
       ) : (
         <CallbackForm onSubmit={handleCallbackSubmit} />
       )}
 
       {submitting && !success && (
         <div className="flex items-center justify-center gap-3 py-4 text-ink/50 text-sm">
-          <span className="w-4 h-4 rounded-full border-2 border-green-brand border-t-transparent animate-spin shrink-0" />
+          <BouncingRobot size={48} />
           Saving your details...
         </div>
       )}

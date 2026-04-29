@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "";
+const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "834466499006537";
 
 const displayFont = Poppins({
   subsets: ["latin"],

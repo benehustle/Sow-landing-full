@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useFunnel } from "./FunnelProvider";
+import { submitToNetlify } from "@/lib/netlifyForm";
 
 declare global {
   interface Window {
@@ -51,6 +53,24 @@ export default function Step1Lead() {
 
     updateData({ ...values, phone });
 
+    // Capture the lead to Netlify Forms first (fire-and-forget).
+    // This guarantees we keep the lead even if they bail before Step 3.
+    void submitToNetlify("lead", {
+      firstName: values.firstName,
+      businessName: values.businessName,
+      phone,
+      email: values.email,
+      utm_source: data.utm.utm_source,
+      utm_medium: data.utm.utm_medium,
+      utm_campaign: data.utm.utm_campaign,
+      utm_content: data.utm.utm_content,
+      utm_term: data.utm.utm_term,
+      fbclid: data.utm.fbclid,
+      gclid: data.utm.gclid,
+      referrer: data.utm.referrer,
+      landing_url: data.utm.landing_url,
+    });
+
     await submitLead({
       step: 1,
       firstName: values.firstName,
@@ -73,7 +93,15 @@ export default function Step1Lead() {
   };
 
   return (
-    <div className="mx-auto max-w-md w-full">
+    <div className="mx-auto max-w-md w-full relative">
+      <Image
+        src="/robots/robot-pointing.png"
+        alt=""
+        width={120}
+        height={144}
+        aria-hidden="true"
+        className="hidden lg:block absolute top-4 -right-40 w-[120px] h-auto pointer-events-none"
+      />
       <h2 className="h-display text-3xl md:text-4xl text-ink mb-2">
         Let&apos;s Get Started
       </h2>

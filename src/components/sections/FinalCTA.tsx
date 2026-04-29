@@ -17,7 +17,7 @@ export default function FinalCTA() {
             className="hidden md:block absolute right-0 top-0 bottom-0 h-full w-auto object-contain object-right z-30 pointer-events-none"
           />
           <div className="relative z-20 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-            {/* LEFT — Text + CTA (cols 1-3 of 5) */}
+            {/* LEFT - Text + CTA (cols 1-3 of 5) */}
             <div className="md:col-span-3">
               <h2 className="h-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-cream leading-[1.1] mb-5">
                 Your Business. Your Website.
@@ -41,7 +41,7 @@ export default function FinalCTA() {
               </Link>
             </div>
 
-            {/* RIGHT — spacer column (robot pinned to tile above) with dot pattern */}
+            {/* RIGHT - spacer column (robot pinned to tile above) with dot pattern */}
             <div className="hidden md:block md:col-span-2 relative h-[280px] lg:h-[320px]">
               <div
                 aria-hidden="true"
