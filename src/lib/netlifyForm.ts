@@ -33,12 +33,24 @@ export async function submitToNetlify(
     stringFields[k] = String(v);
   }
 
+  // Always include the honeypot field (empty = human).
+  if (!("bot-field" in stringFields)) stringFields["bot-field"] = "";
+
+  // POST to the static form-definitions file rather than "/". On Next.js
+  // App Router sites, "/" goes through the SSR handler and Netlify's form
+  // intercept never sees the submission. The static `__forms.html` path
+  // bypasses SSR and is intercepted by Netlify's form handler.
   try {
-    await fetch("/", {
+    const res = await fetch("/__forms.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode(stringFields),
     });
+    if (!res.ok) {
+      console.warn(
+        `[netlify-form:${formName}] non-OK status ${res.status}`,
+      );
+    }
   } catch (err) {
     // Never block the funnel on a forms outage.
     console.warn(`[netlify-form:${formName}] submit failed`, err);
