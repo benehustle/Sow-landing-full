@@ -2,10 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #000;
+}
+
+body {
+  position: relative;
   font-family: var(--font-body);
   background-color: #faf7f0;
   color: #0c2a1b;
+}
+
+/* Permanent top seam guard */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #000;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 @layer utilities {

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Logo from "@/components/brand/Logo";
 import { cities } from "@/data/cities";
 
@@ -10,12 +11,30 @@ const topCities = [...cities]
   .slice(0, 12);
 
 export default function Header() {
+  const pathname = usePathname();
   const [locOpen, setLocOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLocOpen, setMobileLocOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const isHome = pathname === "/";
+  const isTransparent = isHome && !scrolled && !mobileOpen;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-ink/10">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        isTransparent
+          ? "bg-transparent border-b border-transparent"
+          : "bg-black/90 backdrop-blur border-b border-white/10"
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" aria-label="SPOT ON WEBSITES home">
           <Logo size={36} />
@@ -28,7 +47,11 @@ export default function Header() {
             <button
               onMouseEnter={() => setLocOpen(true)}
               onClick={() => setLocOpen((v) => !v)}
-              className="flex items-center gap-1 text-sm font-medium text-ink/70 hover:text-ink transition-colors"
+              className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                isTransparent
+                  ? "text-cream/85 hover:text-cream"
+                  : "text-cream/85 hover:text-cream"
+              }`}
             >
               Locations
               <svg
@@ -84,9 +107,21 @@ export default function Header() {
             aria-label="Toggle menu"
             className="w-9 h-9 flex flex-col items-center justify-center gap-1.5"
           >
-            <span className={`block h-0.5 w-5 bg-ink transition-transform origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-ink transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-ink transition-transform origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span
+              className={`block h-0.5 w-5 transition-transform origin-center ${
+                isTransparent ? "bg-cream" : "bg-ink"
+              } ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-5 transition-opacity ${
+                isTransparent ? "bg-cream" : "bg-ink"
+              } ${mobileOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-5 transition-transform origin-center ${
+                isTransparent ? "bg-cream" : "bg-ink"
+              } ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            />
           </button>
         </div>
       </div>

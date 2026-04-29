@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Manrope, Permanent_Marker } from "next/font/google";
+import { Poppins, Manrope, Permanent_Marker } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -7,8 +7,9 @@ import Footer from "@/components/layout/Footer";
 
 const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "";
 
-const bricolage = Bricolage_Grotesque({
+const displayFont = Poppins({
   subsets: ["latin"],
+  weight: ["600", "700", "800"],
   variable: "--font-display",
 });
 
@@ -36,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-AU"
-      className={`${bricolage.variable} ${manrope.variable} ${permanentMarker.variable}`}
+      className={`${displayFont.variable} ${manrope.variable} ${permanentMarker.variable}`}
     >
       <body>
         {pixelId && (
