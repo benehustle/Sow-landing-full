@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cloudflare": "next build && npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "eslint",
     "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
-    "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static"
+    "preview": "npm run build:cloudflare && wrangler pages dev .vercel/output/static",
+    "deploy": "npm run build:cloudflare && wrangler pages deploy .vercel/output/static",
+    "deploy:pages": "wrangler pages deploy .vercel/output/static"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
