@@ -1,0 +1,81 @@
+import { Shield, Gauge, Headset, BarChart3 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
+
+type Card = {
+  Icon: LucideIcon;
+  title: ReactNode;
+  sub: ReactNode;
+};
+
+const CARDS: Card[] = [
+  {
+    Icon: Shield,
+    title: <>No Lock-In Contracts</>,
+    sub: <>You own everything. No strings attached.</>,
+  },
+  {
+    Icon: Gauge,
+    title: <>Built for Performance</>,
+    sub: <>Fast loading, secure and future ready.</>,
+  },
+  {
+    Icon: Headset,
+    title: (
+      <>
+        100% Aussie <span className="text-green-brand">Support</span>
+      </>
+    ),
+    sub: (
+      <>
+        <span className="text-green-brand font-semibold">Real people</span> who
+        understand your business.
+      </>
+    ),
+  },
+  {
+    Icon: BarChart3,
+    title: <>Built to Convert</>,
+    sub: <>Websites that look great and bring in more customers.</>,
+  },
+];
+
+function ChooseCard({ Icon, title, sub }: Card) {
+  return (
+    <div className="bg-white rounded-2xl shadow-sm border border-ink/8 p-8 text-center">
+      <Icon
+        className="w-12 h-12 mx-auto mb-5 text-green-deep"
+        aria-hidden="true"
+        strokeWidth={1.75}
+      />
+      <p className="font-bold text-lg text-ink mb-3 leading-tight">{title}</p>
+      <p className="text-sm text-ink/60 leading-relaxed">{sub}</p>
+    </div>
+  );
+}
+
+export default function WhyChooseUs() {
+  return (
+    <section className="bg-cream pt-2 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="h-display text-3xl md:text-4xl font-bold text-green-deep mb-10 mx-auto leading-tight lg:whitespace-nowrap">
+          Why{" "}
+          <span className="relative inline-block">
+            Aussie
+            <span
+              aria-hidden="true"
+              className="absolute left-0 right-0 -bottom-1 h-[3px] bg-green-brand rounded-full"
+            />
+          </span>{" "}
+          Businesses Choose Spot On Websites
+        </h2>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {CARDS.map((c, i) => (
+            <ChooseCard key={i} {...c} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -8,7 +8,7 @@ interface LogoProps {
 export default function Logo({ size = 40 }: LogoProps) {
   return (
     <Image
-      src="/logo-real.png"
+      src="/logo-real-v2.png"
       alt="Spot On Websites"
       width={512}
       height={200}
