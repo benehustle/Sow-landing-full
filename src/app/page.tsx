@@ -1,103 +1,180 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import PhoneMockup from "@/components/home/PhoneMockup";
+import ProofStrip from "@/components/home/ProofStrip";
+import ProcessSection from "@/components/home/ProcessSection";
+import FaqSection from "@/components/home/FaqSection";
+import FinalCta from "@/components/home/FinalCta";
+import { SITE_URL, SITE_NAME } from "@/lib/config";
+
+export const metadata: Metadata = {
+  title: `${SITE_NAME} | Custom Websites for $997 - Zero Deposit, Free Hosting`,
+  description: "We build custom websites for Australian businesses. Zero deposit - we build your homepage free. $997 total. Free lifetime hosting.",
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    title: `${SITE_NAME} | Custom Websites for $997 - Zero Deposit, Free Hosting`,
+    description: "We build custom websites for Australian businesses. Zero deposit - we build your homepage free. $997 total. Free lifetime hosting.",
+    url: SITE_URL,
+  },
+};
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      {/* ------------------------------------------------------------------ */}
+      {/* HERO                                                                */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="relative overflow-hidden bg-cream">
+        {/* Dot grid */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(12,42,27,0.06) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Green glow - top right */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-48 -right-48 w-[640px] h-[640px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(31,183,109,0.18) 0%, transparent 70%)",
+          }}
+        />
+
+        {/* Green glow - bottom left */}
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-48 -left-48 w-[560px] h-[560px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(31,183,109,0.13) 0%, transparent 70%)",
+          }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
+            {/* ---- Text block ---- */}
+            <div className="flex-1 min-w-0">
+              {/* Eyebrow */}
+              <p
+                className="small-caps text-green-deep font-bold tracking-wide text-sm mb-6"
+              >
+                Custom Design. No Templates. Ready in 7 Days.
+              </p>
+
+              {/* H1 */}
+              <h1 className="h-display text-6xl md:text-8xl text-ink leading-[1.05] mb-2">
+                Custom Coded
+                <br />
+                Websites
+              </h1>
+
+              {/* Pricing treatment - kept outside h1 to avoid absolute overflow clipping */}
+              <div className="relative inline-block mb-10">
+                {/* "From $997" in display font matching h1 */}
+                <p className="h-display text-6xl md:text-8xl text-ink leading-none">
+                  <span className="relative inline-block">
+                    {/* "From" with SVG strikethrough */}
+                    <span className="relative inline-block">
+                      From
+                      <svg
+                        aria-hidden="true"
+                        className="absolute pointer-events-none"
+                        style={{
+                          top: "52%",
+                          left: "-4px",
+                          width: "calc(100% + 8px)",
+                          height: "16px",
+                          transform: "translateY(-50%) rotate(-8deg)",
+                          overflow: "visible",
+                        }}
+                      >
+                        <line
+                          x1="0"
+                          y1="8"
+                          x2="100%"
+                          y2="8"
+                          stroke="#E63946"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      {/* ONLY — anchored under "From", not under $997 */}
+                      <span
+                        className="absolute font-marker text-red-accent pointer-events-none left-0"
+                        style={{
+                          fontSize: "clamp(3rem, 6vw, 5rem)",
+                          top: "100%",
+                          marginTop: "-0.15em",
+                          transform: "rotate(-6deg)",
+                          transformOrigin: "top left",
+                          lineHeight: 1,
+                          whiteSpace: "nowrap",
+                        }}
+                        aria-hidden="true"
+                      >
+                        ONLY
+                      </span>
+                    </span>
+                    {" $997"}
+                  </span>
+                </p>
+              </div>
+
+              {/* Subhead — extra top gap on lg+ so ONLY/pricing clears on desktop; mobile unchanged */}
+              <p className="text-ink/70 text-lg md:text-xl lg:mt-12 mb-10 max-w-lg leading-relaxed">
+                Zero deposit. We build your homepage free. You only pay if you love it.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/start"
+                  className="px-7 py-3.5 bg-green-brand text-cream font-bold rounded-full text-base hover:bg-green-deep transition-colors"
+                >
+                  Get My Free Homepage
+                </Link>
+                <Link
+                  href="#how"
+                  className="px-7 py-3.5 bg-transparent text-ink font-bold rounded-full text-base border-2 border-ink/20 hover:border-ink/50 transition-colors"
+                >
+                  See How It Works
+                </Link>
+              </div>
+            </div>
+
+            {/* ---- Phone mockup ---- */}
+            <div className="hidden lg:flex shrink-0 justify-center items-center pt-4">
+              <PhoneMockup />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* PROOF STRIP                                                         */}
+      {/* ------------------------------------------------------------------ */}
+      <ProofStrip />
+
+      {/* ------------------------------------------------------------------ */}
+      {/* PROCESS                                                             */}
+      {/* ------------------------------------------------------------------ */}
+      <ProcessSection />
+
+      {/* ------------------------------------------------------------------ */}
+      {/* FAQ                                                                 */}
+      {/* ------------------------------------------------------------------ */}
+      <FaqSection />
+
+      {/* ------------------------------------------------------------------ */}
+      {/* FINAL CTA                                                           */}
+      {/* ------------------------------------------------------------------ */}
+      <FinalCta />
+    </>
   );
 }
