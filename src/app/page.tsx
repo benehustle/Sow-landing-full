@@ -59,26 +59,25 @@ export default function Home() {
                 </span>
 
                 <h1 className="h-display text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.25rem] text-green-deep leading-[1.05] font-extrabold tracking-tight">
-                  Get More Leads
+                  Not Just A Website.
                   <br />
-                  From Your Website
+                  <span className="text-green-brand">A $997 Revenue Engine</span>
                   <br />
-                  <span className="text-green-brand">Or We Work For FREE</span>
-                  <br />
-                  For 90 Days
+                  Built To Generate Leads.
                 </h1>
 
-                <p className="mt-6 text-lg text-ink/75 max-w-[520px] leading-relaxed">
-                  We build your homepage before you pay. After launch, we spend 90 days helping improve the site,
-                  offer, tracking, and lead flow so it has a real chance of generating enquiries.
+                <p className="mt-6 text-lg text-ink/75 max-w-[560px] leading-relaxed">
+                  We build your custom homepage preview before you pay. Once approved, your full website is completed
+                  for $997, then we spend 90 days helping improve your offer, tracking, ads, follow-up, and lead flow at
+                  no extra cost.
                 </p>
 
                 {/* 3 bullet points */}
                 <ul className="mt-6 flex flex-col gap-2.5 max-w-[480px]">
                   {[
-                    "Built to turn visitors into enquiries",
-                    "No deposit before your homepage preview",
-                    "90-day post-launch growth sprint included",
+                    "$0 upfront before your homepage preview",
+                    "$997 professional website build",
+                    "90-day post-launch lead sprint included",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <span className="w-5 h-5 rounded-full bg-green-brand flex items-center justify-center shrink-0">
@@ -99,7 +98,7 @@ export default function Home() {
                     </span>
                     Apply For My Website Preview
                   </Link>
-                  <p className="mt-2 text-sm text-ink/50">No call required.</p>
+                  <p className="mt-2 text-sm text-ink/50">No upfront payment required.</p>
                 </div>
 
                 {/* Trust strip */}
