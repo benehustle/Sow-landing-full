@@ -19,10 +19,9 @@ export default function FinalCTA() {
           <div className="relative z-20 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
             {/* LEFT - Text + CTA (cols 1-3 of 5) */}
             <div className="md:col-span-3 md:pr-6 lg:pr-10 xl:pr-14">
-              <h2 className="h-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-cream leading-[1.1] mb-5">
-                Get Your Free Homepage.
-                <br />
-                <span className="text-green-brand">Get Your Phone Ringing.</span>
+              <h2 className="h-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-cream leading-[1.05] mb-5">
+                <span className="block">Get Your Free Homepage.</span>
+                <span className="block text-green-brand mt-2 md:mt-3">Get Your Phone Ringing.</span>
               </h2>
               <div className="flex flex-col items-start gap-2 mb-8">
                 <Link

@@ -33,10 +33,9 @@ export default function TheOffer() {
           <span className="inline-block bg-green-brand/15 text-green-deep text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest">
             The Offer
           </span>
-          <h2 className="h-display text-4xl md:text-5xl font-extrabold text-green-deep leading-tight">
-            Free Homepage. $997 Site.
-            <br />
-            <span className="text-green-brand">90 Days of Lead Work.</span>
+          <h2 className="h-display text-4xl md:text-5xl font-extrabold text-green-deep leading-[1.05]">
+            <span className="block">Free Homepage. $997 Site.</span>
+            <span className="block text-green-brand mt-2 md:mt-3">90 Days of Lead Work.</span>
           </h2>
           <p className="mt-4 text-ink/65 text-lg max-w-2xl mx-auto">
             Three things you get. One price. Zero risk on day one.

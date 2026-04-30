@@ -36,10 +36,9 @@ export default function ThePromise() {
                 <ShieldCheck className="w-4 h-4 shrink-0 text-green-deep" strokeWidth={2.25} aria-hidden="true" />
                 The 90-Day Promise
               </div>
-              <h2 className="h-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-cream leading-[1.1]">
-                Your phone rings within 90 days.
-                <br />
-                <span className="text-green-brand">Or we keep working free.</span>
+              <h2 className="h-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-cream leading-[1.05]">
+                <span className="block">Your phone rings within 90 days.</span>
+                <span className="block text-green-brand mt-3 md:mt-4">Or we keep working free.</span>
               </h2>
               <p className="mt-5 text-cream/80 text-lg leading-relaxed max-w-xl">
                 Most agencies build it, ship it, ghost you. We don&apos;t. From the day you go live, we spend 90 days tuning copy, conversion paths, and local SEO until you&apos;re getting real enquiries from real customers.

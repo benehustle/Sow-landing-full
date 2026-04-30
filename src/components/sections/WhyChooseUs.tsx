@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-cream pt-2 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="h-display text-3xl md:text-4xl font-bold text-green-deep mb-10 mx-auto leading-tight lg:whitespace-nowrap">
+        <h2 className="h-display text-3xl md:text-4xl font-bold text-green-deep mb-10 mx-auto leading-[1.05] lg:whitespace-nowrap">
           Why{" "}
           <span className="relative inline-block">
             Aussie Tradies

@@ -119,8 +119,8 @@ export default function Home() {
                 <Image
                   src="/robots/hero-home.png"
                   alt="Laptop and phone mockup with new lead call screen and Spot On mascot"
-                  width={860}
-                  height={740}
+                  width={2000}
+                  height={2000}
                   priority
                   unoptimized
                   className="w-[120%] xl:w-[130%] max-w-none h-auto"
@@ -131,8 +131,8 @@ export default function Home() {
                 <Image
                   src="/robots/hero-home.png"
                   alt="Laptop and phone mockup with new lead call screen and Spot On mascot"
-                  width={860}
-                  height={740}
+                  width={2000}
+                  height={2000}
                   priority
                   unoptimized
                   className="w-full max-w-[420px] h-auto"

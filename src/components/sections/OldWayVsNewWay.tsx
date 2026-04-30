@@ -23,7 +23,7 @@ export default function OldWayVsNewWay() {
     <section className="bg-cream py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="h-display text-4xl md:text-5xl font-extrabold text-green-deep leading-tight">
+          <h2 className="h-display text-4xl md:text-5xl font-extrabold text-green-deep leading-[1.05]">
             The Old Way vs The Spot On Way
           </h2>
           <p className="mt-4 text-ink/65 text-lg">
