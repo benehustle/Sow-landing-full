@@ -16,7 +16,7 @@ export default function FinalCta() {
           href="/start"
           className="inline-block px-10 py-4 bg-green-brand text-cream font-bold rounded-full text-lg hover:bg-cream hover:text-ink transition-colors"
         >
-          Get My Free Homepage
+          Build My Free Homepage Now
         </Link>
       </div>
     </section>

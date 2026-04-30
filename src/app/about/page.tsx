@@ -314,7 +314,7 @@ export default function AboutPage() {
               </p>
             </div>
             <p className="font-bold text-ink mt-6">
-              - Matt, Founder, Spot On Websites
+              Matt, Founder, Spot On Websites
             </p>
             <p className="text-xs text-ink/50 mt-1">
               EHUSTLE PTY LTD &middot; ABN 21 679 259 440

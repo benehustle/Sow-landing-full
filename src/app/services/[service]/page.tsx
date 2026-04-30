@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { service: serviceSlug } = await params;
   const service = getServiceBySlug(serviceSlug);
   if (!service) return {};
-  const title = `${service.name} | ${SITE_NAME} - Australia`;
-  const description = `${service.name} for Australian businesses. Zero deposit - we build your homepage free. $997 total. Free lifetime hosting.`;
+  const title = `${service.name} | ${SITE_NAME} | Australia`;
+  const description = `${service.name} for Australian businesses. Zero deposit: we build your homepage free. $997 total. Free lifetime hosting.`;
   return {
     title,
     description,
@@ -61,16 +61,16 @@ export default async function ServiceHubPage({ params }: Props) {
         />
         <div className="max-w-5xl mx-auto px-4 relative">
           <h1 className="h-display text-4xl md:text-5xl text-cream mb-4">
-            {service.name} - Australia-Wide
+            {service.name}, Australia-wide
           </h1>
           <p className="text-cream/70 text-lg max-w-2xl mb-8 leading-relaxed">
-            We provide {service.name.toLowerCase()} for businesses across Australia. Zero deposit - we build your homepage free and you only pay $997 total if you love what you see. Free lifetime hosting included.
+            We provide {service.name.toLowerCase()} for businesses across Australia. Zero deposit: we build your homepage free and you only pay $997 total if you love what you see. Free lifetime hosting included.
           </p>
           <Link
             href="/start"
             className="inline-block bg-green-brand text-white font-bold px-8 py-4 rounded-full hover:bg-green-deep transition-colors"
           >
-            Get your free site
+            Build My Free Homepage Now
           </Link>
         </div>
       </section>
@@ -111,7 +111,7 @@ export default async function ServiceHubPage({ params }: Props) {
             href="/start"
             className="inline-block bg-green-brand text-white font-bold px-8 py-4 rounded-full hover:bg-green-deep transition-colors"
           >
-            Start for free - zero risk
+            Build My Free Homepage Now
           </Link>
         </div>
       </section>

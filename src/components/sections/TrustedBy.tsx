@@ -93,7 +93,7 @@ function TestimonialCard({ name, slug, quote, placeholderBg, imageSrc }: Testimo
 
 export default function TrustedBy() {
   return (
-    <section className="relative pt-7 pb-7 md:pt-8 md:pb-8">
+    <section className="relative pt-0 pb-7 md:pt-0 md:pb-8">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="h-display text-3xl md:text-4xl text-green-deep font-bold mb-8">
           Trusted by Aussie Businesses

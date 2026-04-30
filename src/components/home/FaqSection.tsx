@@ -1,35 +1,43 @@
 const faqs = [
   {
-    q: "How is there zero deposit?",
-    a: "Because we're confident in the work. We build your homepage first, free. You only pay when you've seen it and approved it. If you don't like it, you walk. We've absorbed the time. That's our problem, not yours.",
+    q: "How is the homepage actually free?",
+    a: "Because we'd rather show you our work than sell you a pitch. We build your real homepage first, custom for your trade, and you see it live before paying anything. If it's not right, you walk. We absorb the time. That's our risk to carry, not yours.",
   },
   {
-    q: "What does the $997 include?",
-    a: "Custom coded homepage plus all your inner pages (about, services, contact, anything else you need). Mobile responsive. SEO basics done right. Hosting set up. Domain connected. Free lifetime hosting included. No surprise add-ons.",
+    q: "What does the $997 actually cover?",
+    a: "Everything. Custom coded homepage plus inner pages (about, services, contact, anything else you need). Mobile responsive. SEO foundations done properly. Hosting set up. Domain connected. Free lifetime hosting included. No surprise add-ons, no monthly bill.",
   },
   {
-    q: "Free lifetime hosting? Really?",
-    a: "Yes. Once you're live, you don't pay us another cent for hosting. It runs on Cloudflare Pages which costs us almost nothing to keep online. We pass that on to you.",
+    q: "What's the 90-day lead promise?",
+    a: "Once you're live, we don't ghost you. We spend 90 days tuning copy, conversion paths, and local SEO on your site until you're getting real phone calls from real customers. If the phone hasn't rung by day 90, we keep working on our dime until it does.",
   },
   {
-    q: "What if I hate the homepage you build?",
-    a: "You walk away owing nothing. We don't take a deposit so there's nothing to refund. Worst case for you is two minutes filling out a form.",
+    q: "Free hosting forever? What's the catch?",
+    a: "No catch. Your site runs on infrastructure that costs us almost nothing per month. We pass the saving on to you. No monthly invoice, no annual renewal trap. You own the site, the domain, and you're not locked in.",
   },
   {
-    q: "How long does it take?",
-    a: "Homepage preview ready in a few days from your call. Once you pay the $600, the full site is live within 7 days. Pay the balance, we push it live the same day.",
+    q: "What if I don't like the homepage you build?",
+    a: "You walk away owing nothing. No deposit means nothing to refund. Worst case for you is two minutes filling in a form. Most clients say yes, but the option to walk is always real.",
   },
   {
-    q: "Do I need to provide copy and photos?",
-    a: "Helpful but not required. We can pull from your existing site, write copy from your onboarding form, and use stock or licensed imagery if you don't have photos. We'll always ask before guessing.",
+    q: "How long until I'm live?",
+    a: "Free homepage preview ready a few days after your call. Once you approve and pay the $997, the full site goes live within 7 days. Then the 90-day optimisation work kicks in.",
+  },
+  {
+    q: "Do I need to write copy or supply photos?",
+    a: "No. Helpful if you have them, but we can pull from your existing site, write copy from your onboarding form, and use stock or licensed imagery. We always check before guessing.",
   },
   {
     q: "Are you actually Australian?",
-    a: "Yes. EHUSTLE PTY LTD, ABN 21 679 259 440, based in Queensland. No offshore team. No template recycling. Real people building real sites.",
+    a: "Yes. EHUSTLE PTY LTD, ABN 21 679 259 440, based in Queensland. No offshore team. No template recyclers. Real Aussies building real sites for real Aussie tradies.",
   },
   {
-    q: "Why not just use Wix or Squarespace?",
-    a: "Templates load slow, look like everyone else's, and the SEO is locked behind their platform. Custom coded sites load faster, rank better, and you actually own them. For $997 total with free hosting, there's no reason not to.",
+    q: "Why not just use Wix, Squarespace or some AI builder?",
+    a: "Templates load slow, look generic, and lock your SEO behind their platform. AI builders spit out the same thing every other tradie just spat out. Custom coded sites load faster, rank better, convert harder, and you actually own them. For $997 with free hosting, the maths is obvious.",
+  },
+  {
+    q: "What if I already have a website?",
+    a: "We can rebuild on the same domain or migrate cleanly. We'll redirect your old URLs so you don't lose Google rankings. Most clients see better lead flow within the 90-day window because the new site is faster and built to convert, not just look pretty.",
   },
 ];
 

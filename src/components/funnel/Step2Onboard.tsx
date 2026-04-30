@@ -143,7 +143,7 @@ export default function Step2Onboard() {
         >
           {photos.length === 0
             ? "Click to upload photos"
-            : `${photos.length} photo${photos.length > 1 ? "s" : ""} selected - click to change`}
+            : `${photos.length} photo${photos.length > 1 ? "s" : ""} selected; click to change`}
         </button>
 
         <input

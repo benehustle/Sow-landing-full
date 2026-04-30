@@ -164,7 +164,7 @@ export default function Header() {
             href="/start"
             className="hidden md:inline-flex items-center gap-1.5 px-5 py-2 bg-green-deep text-white font-bold rounded-full text-sm hover:bg-green-brand transition-colors"
           >
-            Get My Free Homepage
+            Build My Free Homepage Now
             <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
 
@@ -173,7 +173,7 @@ export default function Header() {
             href="/start"
             className="md:hidden inline-flex items-center gap-1 px-4 py-2 bg-green-deep text-white font-bold rounded-full text-sm hover:bg-green-brand transition-colors"
           >
-            Get started
+            Build My Free Homepage Now
             <ArrowRight className="w-3 h-3" aria-hidden="true" />
           </Link>
 
@@ -260,7 +260,7 @@ export default function Header() {
             onClick={() => setMobileOpen(false)}
             className="mt-3 inline-flex items-center justify-center gap-2 py-3 bg-green-deep text-white font-bold rounded-full text-sm hover:bg-green-brand transition-colors"
           >
-            Get My Free Homepage
+            Build My Free Homepage Now
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </nav>

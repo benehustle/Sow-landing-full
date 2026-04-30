@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityBySlug(citySlug);
   if (!city) return {};
   const title = `Web Design in ${city.name} | ${SITE_NAME}`;
-  const description = `Custom website design for ${city.name} businesses. Zero deposit - we build your homepage free. $997 total. Free lifetime hosting.`;
+  const description = `Custom website design for ${city.name} businesses. Zero deposit: we build your homepage free. $997 total. Free lifetime hosting.`;
   return {
     title,
     description,
@@ -81,7 +81,7 @@ export default async function CityHubPage({ params }: Props) {
             href="/start"
             className="inline-block bg-green-brand text-white font-bold px-8 py-4 rounded-full hover:bg-green-deep transition-colors"
           >
-            Get your free site
+            Build My Free Homepage Now
           </Link>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default async function CityHubPage({ params }: Props) {
         <section className="py-12 bg-white border-t border-ink/8">
           <div className="max-w-5xl mx-auto px-4">
             <h2 className="font-bold text-ink text-xl mb-5">
-              Serving all of {city.name} - including
+              Serving all of {city.name}, including
             </h2>
             <div className="flex flex-wrap gap-2">
               {city.suburbs.map((suburb) => (
@@ -148,7 +148,7 @@ export default async function CityHubPage({ params }: Props) {
             href="/start"
             className="inline-block bg-green-brand text-white font-bold px-8 py-4 rounded-full hover:bg-green-deep transition-colors"
           >
-            Start for free
+            Build My Free Homepage Now
           </Link>
         </div>
       </section>

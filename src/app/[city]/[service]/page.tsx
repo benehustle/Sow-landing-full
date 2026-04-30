@@ -170,7 +170,7 @@ export default async function CityServicePage({ params }: Props) {
             href="/start"
             className="inline-block bg-green-brand text-white font-bold px-8 py-4 rounded-full hover:bg-green-deep transition-colors text-lg"
           >
-            Get my free homepage preview
+            Build My Free Homepage Now
           </Link>
         </div>
       </section>
@@ -281,7 +281,7 @@ export default async function CityServicePage({ params }: Props) {
             href="/start"
             className="inline-block bg-green-brand text-white font-bold px-8 py-4 rounded-full hover:bg-green-deep transition-colors text-lg"
           >
-            Get my free homepage preview
+            Build My Free Homepage Now
           </Link>
         </div>
       </section>

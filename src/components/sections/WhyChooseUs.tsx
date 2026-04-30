@@ -1,4 +1,4 @@
-import { Shield, Eye, Headset, Cloud } from "lucide-react";
+import { Shield, Eye, Headset, PhoneCall } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -15,28 +15,27 @@ const CARDS: Card[] = [
     sub: <>Free homepage first. Pay only when you love it.</>,
   },
   {
+    Icon: PhoneCall,
+    title: (
+      <>
+        90-Day <span className="text-green-brand">Lead Promise</span>
+      </>
+    ),
+    sub: <>We optimise until your phone&apos;s actually ringing.</>,
+  },
+  {
     Icon: Headset,
     title: (
       <>
         100% Aussie <span className="text-green-brand">Support</span>
       </>
     ),
-    sub: (
-      <>
-        <span className="text-green-brand font-semibold">Real people</span> who
-        understand your business.
-      </>
-    ),
+    sub: <>Real people. Same time zone. No offshore runaround.</>,
   },
   {
     Icon: Shield,
-    title: <>No Lock-In Contracts</>,
-    sub: <>You own everything. No strings attached.</>,
-  },
-  {
-    Icon: Cloud,
-    title: <>Free Lifetime Hosting</>,
-    sub: <>Your site stays live forever. No monthly bill.</>,
+    title: <>No Lock-In, No BS</>,
+    sub: <>You own everything. Free hosting for life.</>,
   },
 ];
 
@@ -61,13 +60,13 @@ export default function WhyChooseUs() {
         <h2 className="h-display text-3xl md:text-4xl font-bold text-green-deep mb-10 mx-auto leading-tight lg:whitespace-nowrap">
           Why{" "}
           <span className="relative inline-block">
-            Aussie
+            Aussie Tradies
             <span
               aria-hidden="true"
               className="absolute left-0 right-0 -bottom-1 h-[3px] bg-green-brand rounded-full"
             />
           </span>{" "}
-          Businesses Choose Spot On Websites
+          Choose Spot On Websites
         </h2>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
