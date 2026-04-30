@@ -8,6 +8,11 @@
   command = "npm run build"
   publish = ".next"
 
+# NEXT_PUBLIC_* values are inlined into JS; Clarity project ID is public by design.
+# Omit from Netlify secret scanning to avoid false-positive build failures.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_CLARITY_PROJECT_ID"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
