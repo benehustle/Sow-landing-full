@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Manrope, Permanent_Marker } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
       className={`${displayFont.variable} ${manrope.variable} ${permanentMarker.variable}`}
     >
       <body>
+        <MicrosoftClarity />
         {pixelId && (
           <>
             <Script id="meta-pixel" strategy="afterInteractive">{`

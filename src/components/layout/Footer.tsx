@@ -167,7 +167,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-cream/10 pt-6 mt-10">
           <p className="text-xs text-cream/50">
-            &copy; 2026 Spot On Websites. EHUSTLE PTY LTD. ABN 21 679 259 440.
+            &copy; 2026 Spot On Websites.
           </p>
         </div>
       </div>

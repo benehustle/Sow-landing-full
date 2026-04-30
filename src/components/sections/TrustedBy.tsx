@@ -8,26 +8,31 @@ type Testimonial = {
   quote: string;
   /** Fallback colour for the placeholder circle when the logo PNG is missing */
   placeholderBg: string;
+  /** Optional circular profile image (overrides /logos/[slug].png) */
+  imageSrc?: string;
 };
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Salt Design Co",
-    slug: "salt",
-    quote: "\u201CThis was so easy.\u201D",
+    name: "The Dog Door Guy",
+    slug: "dog-door-guy",
+    quote: "\u201CSuper easy process and the site looks sharp.\u201D",
     placeholderBg: "bg-ink/80",
+    imageSrc: "/logos/dog-door-guy.png",
   },
   {
-    name: "The Finance Guys",
-    slug: "finance-guys",
+    name: "Melbourne Mint Coins",
+    slug: "melbourne-mint-coins",
     quote: "\u201CBeats the $5k website we had built.\u201D",
     placeholderBg: "bg-green-deep",
+    imageSrc: "/logos/melbourne-mint.png",
   },
   {
-    name: "Eastern Electrical",
-    slug: "eastern-electrical",
-    quote: "\u201COurs doesn't look like every other sparkie site.\u201D",
+    name: "Inspire Energy",
+    slug: "inspire-energy",
+    quote: "\u201CFinally a site that matches how professional we are in the field.\u201D",
     placeholderBg: "bg-red-accent",
+    imageSrc: "/logos/inspire-energy.png",
   },
 ];
 
@@ -35,50 +40,41 @@ function BrandLogo({
   name,
   slug,
   placeholderBg,
-}: Pick<Testimonial, "name" | "slug" | "placeholderBg">) {
-  // Start with errored = true so the placeholder renders immediately (no broken
-  // image flash). Once a real PNG loads successfully, swap to the image.
-  const [errored, setErrored] = useState(true);
+  imageSrc,
+}: Pick<Testimonial, "name" | "slug" | "placeholderBg" | "imageSrc">) {
+  const src = imageSrc ?? `/logos/${slug}.png`;
+  const [broken, setBroken] = useState(false);
+
+  if (broken) {
+    return (
+      <div
+        className={`w-[60px] h-[60px] rounded-full ${placeholderBg} flex items-center justify-center shrink-0`}
+        aria-label={`${name} logo`}
+      >
+        <span className="text-white font-bold text-xl">{name.charAt(0)}</span>
+      </div>
+    );
+  }
 
   return (
-    <>
-      {errored ? (
-        <div
-          className={`w-[60px] h-[60px] rounded-full ${placeholderBg} flex items-center justify-center shrink-0`}
-          aria-label={`${name} logo`}
-        >
-          <span className="text-white font-bold text-xl">{name.charAt(0)}</span>
-        </div>
-      ) : (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`/logos/${slug}.png`}
-          alt={`${name} logo`}
-          width={60}
-          height={60}
-          className="w-[60px] h-[60px] rounded-full object-contain shrink-0"
-        />
-      )}
-      {/* Hidden probe - if the real logo loads, swap to it */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`/logos/${slug}.png`}
-        alt=""
-        aria-hidden="true"
-        className="hidden"
-        onLoad={() => setErrored(false)}
-        onError={() => setErrored(true)}
-      />
-    </>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={`${name} logo`}
+      width={60}
+      height={60}
+      className="w-[60px] h-[60px] rounded-full object-cover shrink-0 bg-white border border-ink/10"
+      onError={() => setBroken(true)}
+    />
   );
 }
 
-function TestimonialCard({ name, slug, quote, placeholderBg }: Testimonial) {
+function TestimonialCard({ name, slug, quote, placeholderBg, imageSrc }: Testimonial) {
   return (
     <article className="bg-white rounded-2xl shadow-sm border border-ink/8 p-6 flex flex-col gap-4 text-left">
       {/* Top row: logo + 5-star pill */}
       <div className="flex items-center justify-between gap-4">
-        <BrandLogo name={name} slug={slug} placeholderBg={placeholderBg} />
+        <BrandLogo name={name} slug={slug} placeholderBg={placeholderBg} imageSrc={imageSrc} />
         <span className="inline-flex items-center bg-green-brand text-white px-3 py-1 rounded-full text-sm font-bold tracking-wider">
           &#9733;&#9733;&#9733;&#9733;&#9733;
         </span>

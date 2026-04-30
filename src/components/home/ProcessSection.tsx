@@ -1,7 +1,7 @@
 const steps = [
   {
     number: "01",
-    title: "Apply",
+    title: "Get Started",
     body: "Tell us about your business in under 2 minutes. We pull what we need from your existing site or onboarding form.",
   },
   {

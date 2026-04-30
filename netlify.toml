@@ -1,8 +1,8 @@
 # Netlify build + plugin config for Spot On Websites (Next.js 15 App Router).
 #
 # The official @netlify/plugin-nextjs handles SSR / API routes / image
-# optimisation. Forms detection runs against the deployed HTML — including
-# files in `public/` — so `public/__forms.html` is what Netlify scans.
+# optimisation. Forms detection runs against the deployed HTML, including
+# files in `public/`, so `public/__forms.html` is what Netlify scans.
 
 [build]
   command = "npm run build"

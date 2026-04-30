@@ -24,7 +24,7 @@ export async function submitToNetlify(
   formName: string,
   fields: Fields,
 ): Promise<void> {
-  // Skip in dev / SSR — Netlify Forms only works on a deployed Netlify site.
+  // Skip in dev / SSR: Netlify Forms only works on a deployed Netlify site.
   if (typeof window === "undefined") return;
 
   const stringFields: Record<string, string> = { "form-name": formName };

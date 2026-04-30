@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Lock, Users } from "lucide-react";
+import { ArrowRight, Shield, Lock, Cloud } from "lucide-react";
 import TrustedBy from "@/components/sections/TrustedBy";
 import PricingBreakdown from "@/components/sections/PricingBreakdown";
 import HowItWorks from "@/components/sections/HowItWorks";
+import PortfolioSection from "@/components/sections/PortfolioSection";
 import WhatYouGet from "@/components/sections/WhatYouGet";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import FaqSection from "@/components/home/FaqSection";
@@ -12,11 +13,11 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import { SITE_URL, SITE_NAME } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} | Custom Websites for $997 - Zero Deposit, Free Hosting`,
+  title: `${SITE_NAME} | $997 Sites That Beat the $5k Ones - Free Homepage First`,
   description: "We build custom websites for Australian businesses. Zero deposit - we build your homepage free. $997 total. Free lifetime hosting.",
   alternates: { canonical: SITE_URL },
   openGraph: {
-    title: `${SITE_NAME} | Custom Websites for $997 - Zero Deposit, Free Hosting`,
+    title: `${SITE_NAME} | $997 Sites That Beat the $5k Ones - Free Homepage First`,
     description: "We build custom websites for Australian businesses. Zero deposit - we build your homepage free. $997 total. Free lifetime hosting.",
     url: SITE_URL,
   },
@@ -57,11 +58,11 @@ export default function Home() {
             {/* ---- LEFT: text ---- */}
             <div className="pt-16 pb-8 lg:pt-16 lg:pb-12">
               <h1 className="h-display text-4xl sm:text-5xl lg:text-[4.25rem] xl:text-[5rem] text-green-deep leading-[1.02] font-extrabold">
-                Custom Coded Websites That Work as Hard as You Do.
+                $997 Websites That Beat the $5k Ones
               </h1>
 
               <p className="mt-6 text-lg text-ink/70 max-w-[420px] leading-relaxed">
-                Affordable, fast and built for Australian businesses. Get your free homepage first. Pay only if you love it.
+                Custom built for Australian businesses. See your homepage first. Pay only if you love it. Live in 7 days.
               </p>
 
               <div className="mt-8">
@@ -89,8 +90,8 @@ export default function Home() {
                 </span>
                 <span className="hidden sm:block w-px h-4 bg-ink/20" aria-hidden="true" />
                 <span className="inline-flex items-center gap-2 text-sm text-ink/60">
-                  <Users className="w-4 h-4 text-ink/40 shrink-0" aria-hidden="true" />
-                  Trusted by local businesses
+                  <Cloud className="w-4 h-4 text-ink/40 shrink-0" aria-hidden="true" />
+                  Free lifetime hosting
                 </span>
               </div>
             </div>
@@ -141,6 +142,11 @@ export default function Home() {
       {/* HOW IT WORKS                                                        */}
       {/* ------------------------------------------------------------------ */}
       <HowItWorks />
+
+      {/* ------------------------------------------------------------------ */}
+      {/* PORTFOLIO                                                           */}
+      {/* ------------------------------------------------------------------ */}
+      <PortfolioSection />
 
       {/* ------------------------------------------------------------------ */}
       {/* WHAT YOU GET                                                        */}

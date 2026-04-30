@@ -1,4 +1,4 @@
-import { Shield, Gauge, Headset, BarChart3 } from "lucide-react";
+import { Shield, Eye, Headset, Cloud } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -10,14 +10,9 @@ type Card = {
 
 const CARDS: Card[] = [
   {
-    Icon: Shield,
-    title: <>No Lock-In Contracts</>,
-    sub: <>You own everything. No strings attached.</>,
-  },
-  {
-    Icon: Gauge,
-    title: <>Built for Performance</>,
-    sub: <>Fast loading, secure and future ready.</>,
+    Icon: Eye,
+    title: <>See Before You Pay</>,
+    sub: <>Free homepage first. Pay only when you love it.</>,
   },
   {
     Icon: Headset,
@@ -34,9 +29,14 @@ const CARDS: Card[] = [
     ),
   },
   {
-    Icon: BarChart3,
-    title: <>Built to Convert</>,
-    sub: <>Websites that look great and bring in more customers.</>,
+    Icon: Shield,
+    title: <>No Lock-In Contracts</>,
+    sub: <>You own everything. No strings attached.</>,
+  },
+  {
+    Icon: Cloud,
+    title: <>Free Lifetime Hosting</>,
+    sub: <>Your site stays live forever. No monthly bill.</>,
   },
 ];
 

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   ArrowRight,
   ClipboardCheck,
@@ -19,7 +20,7 @@ const STEPS: Step[] = [
   {
     number: 1,
     Icon: ClipboardCheck,
-    title: "Apply",
+    title: "Get Started",
     sub: "Tell us about your business",
   },
   {
@@ -31,8 +32,8 @@ const STEPS: Step[] = [
   {
     number: 3,
     Icon: CircleDollarSign,
-    title: "Pay $600",
-    sub: "Only if you love it",
+    title: "Approve & Pay $600",
+    sub: "Quick call, only if you love it",
   },
   {
     number: 4,
@@ -44,7 +45,7 @@ const STEPS: Step[] = [
 
 function StepCard({ number, Icon, title, sub }: Step) {
   return (
-    <div className="relative bg-white rounded-2xl shadow-sm border border-ink/8 px-5 pt-10 pb-6 w-full lg:w-48 flex flex-col items-center text-center">
+    <div className="relative bg-white rounded-2xl shadow-sm border border-ink/8 px-5 pt-10 pb-6 w-full min-w-0 h-full flex flex-col items-center text-center">
       {/* Floating number badge - square rounded */}
       <span className="absolute -top-3 left-4 w-9 h-9 rounded-lg bg-green-deep text-white text-base font-extrabold flex items-center justify-center shadow-sm">
         {number}.
@@ -71,24 +72,22 @@ export default function HowItWorks() {
           How It Works
         </h2>
 
-        {/* Desktop: horizontal with arrows */}
-        <div className="hidden lg:flex gap-3 items-center justify-center">
+        {/* Desktop: CSS Grid forces equal column widths + identical row height for all cards */}
+        <div className="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-3 lg:items-stretch lg:justify-items-stretch">
           {STEPS.map((step, i) => (
-            <div key={step.number} className="flex items-center gap-3">
+            <Fragment key={step.number}>
               <StepCard {...step} />
               {i < STEPS.length - 1 && (
-                <ArrowRight
-                  className="w-6 h-6 text-green-brand shrink-0"
-                  aria-hidden="true"
-                  strokeWidth={2.5}
-                />
+                <div className="flex items-center justify-center px-0.5" aria-hidden="true">
+                  <ArrowRight className="w-6 h-6 text-green-brand shrink-0" strokeWidth={2.5} />
+                </div>
               )}
-            </div>
+            </Fragment>
           ))}
         </div>
 
-        {/* Tablet: 2x2 grid */}
-        <div className="hidden md:grid lg:hidden grid-cols-2 gap-6">
+        {/* Tablet: 2x2 grid, equal height within each row */}
+        <div className="hidden md:grid lg:hidden grid-cols-2 gap-6 items-stretch">
           {STEPS.map((step) => (
             <StepCard key={step.number} {...step} />
           ))}

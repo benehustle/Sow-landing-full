@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Are you actually Australian?",
-    a: "Yes. EHUSTLE PTY LTD, ABN 21 679 259 440, based in Queensland. No offshore team. No AI slop. Real people building real sites.",
+    a: "Yes. EHUSTLE PTY LTD, ABN 21 679 259 440, based in Queensland. No offshore team. No template recycling. Real people building real sites.",
   },
   {
     q: "Why not just use Wix or Squarespace?",
