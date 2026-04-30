@@ -65,19 +65,20 @@ export default function Home() {
                   <br />
                   <span className="text-green-brand">Or We Work For FREE</span>
                   <br />
-                  Until It Does
+                  For 90 Days
                 </h1>
 
-                <p className="mt-6 text-lg text-ink/75 max-w-[480px] leading-relaxed">
-                  We build your homepage first. Then spend 90 days helping it actually generate leads for your business.
+                <p className="mt-6 text-lg text-ink/75 max-w-[520px] leading-relaxed">
+                  We build your homepage before you pay. After launch, we spend 90 days helping improve the site,
+                  offer, tracking, and lead flow so it has a real chance of generating enquiries.
                 </p>
 
                 {/* 3 bullet points */}
                 <ul className="mt-6 flex flex-col gap-2.5 max-w-[480px]">
                   {[
-                    "Built for conversions (not just design)",
-                    "No deposit, pay only if you love it",
-                    "90-day lead activation included",
+                    "Built to turn visitors into enquiries",
+                    "No deposit before your homepage preview",
+                    "90-day post-launch growth sprint included",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <span className="w-5 h-5 rounded-full bg-green-brand flex items-center justify-center shrink-0">
@@ -96,7 +97,7 @@ export default function Home() {
                     <span className="w-7 h-7 rounded-full bg-white flex items-center justify-center shrink-0">
                       <ArrowRight className="w-4 h-4 text-green-deep" aria-hidden="true" />
                     </span>
-                    See My Free Homepage
+                    Apply For My Website Preview
                   </Link>
                   <p className="mt-2 text-sm text-ink/50">No call required.</p>
                 </div>
